@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        
+        
+        body {          
+background-image: url("/pizza.jpg");    
+background-repeat: no-repeat;       
+background-attachment: fixed;       
+background-size: cover;     
+}
+.inputs_box{
+    background-color: rgb(128, 9, 0);
+    width: 500;
+    position: absolute;
+    text-align: end;
+    border-radius: 8px;
+    left: 10px;
+    
+}
+.order {
+width: 100px;
+height: 50px;
+font-weight: 500px;
+border-radius: px;
+}
+
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza</title>
+</head>
+<body>
+    <div>
+  <h1 class="coteret"> Pizza</h1>  
+  <div class="inputs_box">
+    <h1 class="type">  :סוג בצק</h1>
+    <input type="radio" id="classic" name="type" value="0">
+    <label for="classic">בצק קלאסי</label>
+    <input type="radio" id="thin" name="type" value="0">
+    <label for="thin">בצק דק</label>
+    <input type="radio" id="gluten-free" name="type" value="5">
+    <label for="gluten-free">בצק עבה</label>
+    <br/><h1 class="pizzatype"> :גודל הפיצה</h1>
+    <input type="radio" id="personal" name="pizzatype" value="55">
+    <label for="personal">אקסטרה לארג'</label>
+    <input type="radio" id="large" name="pizzatype" value="40">
+    <label for="large">לארג'</label>
+    <input type="radio" id="extralarge" name="pizzatype" value="25">
+    <label for="extralarge">אישית</label>
+    <h1>:בחר תוספות</h1>
+    <input type="checkbox" id="without_extras" name="add" value="0">
+    <label for="without_extras">ללא תוספות</label>
+    <input type="checkbox" id="תירס" name="add" value="5">
+    <label for="זיתים">זיתים</label>
+    <input type="checkbox" id="זיתים" name="add" value="5">
+    <label for="תירס">תירס</label>
+    <input type="checkbox" id="גבינה" name="add" value="5">
+    <label for="בצל">בצל</label>
+    <input type="checkbox" id="בצל" name="add" value="5">
+    <label for="אקסטרה גבינה">אקסטרה גבינה</label>
+    <input type="checkbox" id="פלפל חריף" name="add" value="5">
+    <label for="פלפל חריף">פלפל חריף</label>
+    <input type="checkbox" id="שומשום בקשה" name="add" value="5">
+    <label for="שומשום בקשה"> אננס</label><br>
+ 
+ 
+  <button class="order" onclick=" getPrice()">order</button>
+<script>
+    function getPrice() {
+        var pizzatype = document.getElementsByName("pizzatype");
+        var add = document.getElementsByName("add");
+        var type = document.getElementsByName("type");
+        var x;
+        var y = 0;
+        var z;
+        var isTrue1 = false;
+        var isTrue2 = false;
+
+        for (i = 0; i < pizzatype.length; i++) {
+          if (pizzatype[i].checked) {
+            x = pizzatype[i].value;
+            isTrue1 = true;
+          }
+        }
+
+        for (i = 0; i < add.length; i++) {
+          if (add[i].checked) {
+            y += Number(add[i].value);
+          }
+        }
+
+        for (i = 0; i < type.length; i++) {
+          if (type[i].checked) {
+            isTrue2 = true;
+          }
+        }
+
+        if (isTrue1 && isTrue2) {
+          z = Number(x) + y;
+          alert(z);
+        } else {
+          if (!isTrue1) {
+            alert("אנא בחר סוג פיצה");
+          } else if (!isTrue2) {
+            alert("אנא בחר סוג בצק");
+          }
+        }
+      }
+    </script>
+</div>
+  
+</body>
+</html>
